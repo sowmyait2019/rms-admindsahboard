@@ -1,0 +1,93 @@
+body {
+  background-color: #111;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  background-color: #111;
+  padding-top: 60px; /* Adjusted to accommodate the fixed navbar */
+  color: white;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ece1e1;
+  display: block;
+  transition: 0.3s;
+}
+.content {
+  margin-left: 250px;
+  padding: 16px;
+}
+#sidebarMenu {
+  background-color: rgb(21, 12, 37) !important;
+  color: white; /* You may want to set the text color to white or another readable color on a dark background */
+
+}
+.nav-item {
+  position: relative;
+}
+.menu {
+  position: absolute;
+  z-index: 2;
+  background: #140b23;
+  display: none;
+  padding: 15px 15px;
+
+
+}
+.nav-item:hover .menu{
+  display: block;
+}
+.menu a{
+  width: 100%;
+  min-width: 8rem;
+}
+
+.img-box {
+  margin-left: 500px;
+  margin-top: 80px;
+}
+.img-box p {
+  margin-left: 130px;
+  font-weight: bold;
+
+}
+.img-img {
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+
+
+
+

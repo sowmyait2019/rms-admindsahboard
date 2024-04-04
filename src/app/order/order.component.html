@@ -1,0 +1,25 @@
+<app-dashboard></app-dashboard>
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Order</th>
+      <th>Order Details</th>
+      <th>Payment Status</th>
+      <th>Order Type</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of order">
+      <td>{{ order.order}}</td>
+      <td> {{ order.orderdetails }}</td>
+      <td> {{ order.payment }}</td>
+      <td> {{ order.ordertype }}</td>
+
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
