@@ -12,7 +12,7 @@ export class BookService {
 
   getbooks() {
     console.log('Sending request to fetch book events...');
-    return this.http.get<any[]>("http://localhost:5000/api/books")  // assuming your API endpoint is '/api/books'
+    return this.http.get<any[]>("http://localhost:5000/events/book-event")  // assuming your API endpoint is '/api/books'
       .pipe(
         tap(data => console.log('Received data from the API:', data)),
         catchError(error => {

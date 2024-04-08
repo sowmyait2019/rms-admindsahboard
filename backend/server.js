@@ -10,7 +10,7 @@ app.use(cors());
 
 const connectToDB = async () => {
   try {
-    await mongoose.connect('mongodb://0.0.0.0:27017/mydatabase', {
+    await mongoose.connect('mongodb://0.0.0.0:27017/book-eventdb', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
@@ -21,6 +21,97 @@ const connectToDB = async () => {
   }
 }
 connectToDB();
+// const Offer = mongoose.model('Offer', {
+//   name: String,
+//   discount: Number
+// });
+// app.get('/offers', async (req, res) => {
+//   try {
+//     const offers = await Offer.find();
+//     res.json(offers);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+//
+// app.post('/offers', async (req, res) => {
+//   try {
+//     const { name, discount } = req.body;
+//     const newOffer = new Offer({ name, discount });
+//     await newOffer.save();
+//     res.status(201).json(newOffer);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+//
+// app.put('/offers/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { name, discount } = req.body;
+//     const updatedOffer = await Offer.findByIdAndUpdate(id, { name, discount }, { new: true });
+//     res.json(updatedOffer);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+//
+// app.delete('/offers/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     await Offer.findByIdAndDelete(id);
+//     res.json({ message: 'Offer deleted successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+// const orderSchema = new mongoose.Schema({
+//   order: String,
+//   orderdetails: String,
+//   payment: String
+//
+//   // Add other fields as needed
+// });
+
+
+// const OrderModel = mongoose.model('Order', orderSchema, 'orders');
+//
+// app.get('/api/orders', async (req, res) => {
+//   try {
+//     const data = await OrderModel.find();
+//     res.json(data);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+const bookSchema = new mongoose.Schema({
+  name: String,
+  phoneNumber: String,
+  email: String,
+  persons:Number,
+  date:String
+  // Add other fields as needed
+});
+
+const BookModel = mongoose.model('Book', bookSchema, 'books');
+
+
+app.get('/api/books', async (req, res) => {
+  try {
+    const data = await BookModel.find();
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 const contactSchema = new mongoose.Schema({
   Name: String,
@@ -79,49 +170,28 @@ app.delete('/api/contacts/:id', async (req, res) => {
   }
 });
 
-const orderSchema = new mongoose.Schema({
-  order: String,
-  orderdetails: String,
-  payment: String
-  // services:String,
-  // Phno:Number
-  // Add other fields as needed
-});
-
-const OrderModel = mongoose.model('Order', orderSchema, 'orders');
-
-app.get('/api/orders', async (req, res) => {
-  try {
-    const data = await OrderModel.find();
-    res.json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-const bookSchema = new mongoose.Schema({
+const eventSchema = new mongoose.Schema({
   name: String,
-  phonenumber: Number,
+  phoneNumber: String,
   email: String,
-  persons:Number,
-  date:String
-  // Add other fields as needed
+  persons: { type: Number, required: true },
+  date: String,
 });
 
-const BookModel = mongoose.model('Book', bookSchema, 'books');
 
+const EventModel = mongoose.model('Event', eventSchema, 'events');
 
-app.get('/api/books', async (req, res) => {
+// Route to fetch event data
+app.get('/events/book-event', async (req, res) => {
   try {
-    const data = await BookModel.find();
-    res.json(data);
+    const events = await EventModel.find();
+    res.json(events);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
+''
 const loginSchema = new mongoose.Schema({
   email: String,
   password: String
@@ -135,7 +205,7 @@ app.get('/api/login', async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

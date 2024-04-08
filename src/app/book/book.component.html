@@ -1,5 +1,35 @@
-<!-- book.component.html in admin panel -->
+<!--&lt;!&ndash; book.component.html in admin panel &ndash;&gt;-->
+<!--<app-dashboard></app-dashboard>-->
+<!--<div>-->
+<!--  <input type="text" placeholder="Search">-->
+
+<!--  <table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>Name</th>-->
+<!--      <th>Phone Number</th>-->
+<!--      <th>Email</th>-->
+<!--      <th>Persons</th>-->
+<!--      <th>Date</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let book of books">-->
+<!--      <td>{{ book.name }}</td>-->
+<!--      <td>{{ book.phonenumber }}</td>-->
+<!--      <td>{{ book.email }}</td>-->
+<!--      <td>{{ book.persons }}</td>-->
+<!--      <td>{{ book.date }}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+
+
 <app-dashboard></app-dashboard>
+
+
+
 <div>
   <input type="text" placeholder="Search">
 
@@ -11,16 +41,19 @@
       <th>Email</th>
       <th>Persons</th>
       <th>Date</th>
+
+
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let book of books">
-      <td>{{ book.name }}</td>
-      <td>{{ book.phonenumber }}</td>
-      <td>{{ book.email }}</td>
-      <td>{{ book.persons }}</td>
-      <td>{{ book.date }}</td>
+    <tr *ngFor="let book of book">
+      <td>{{ book.name}}</td>
+      <td> {{ book.phoneNumber }}</td>
+      <td> {{ book.email }}</td>
+      <td> {{book.persons}}</td>
+      <td>{{book.date}}</td>
     </tr>
     </tbody>
   </table>
+
 </div>

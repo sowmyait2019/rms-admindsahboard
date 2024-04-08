@@ -1,0 +1,17 @@
+/* offer.component.css */
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.offer-item {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+}

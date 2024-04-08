@@ -8,24 +8,34 @@ import { BookService } from "../bservice/book.service";
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  books!: any[];
-
-  constructor(private bookService: BookService) {}
-
+  // books!: any[];
+  //
+  // constructor(private bookService: BookService) {}
+  //
+  // // ngOnInit() {
+  // //   this.bookService.getBookEvents().subscribe(books => {
+  // //     this.books = books;
+  // //   });
+  // // }
   // ngOnInit() {
-  //   this.bookService.getBookEvents().subscribe(books => {
-  //     this.books = books;
-  //   });
+  //   this.bookService.getbooks().subscribe(
+  //     books => {
+  //       console.log('Received books:', books); // Log the received data
+  //       this.books = books;
+  //     },
+  //     error => {
+  //       console.error('Error fetching book events:', error);
+  //     }
+  //   );
   // }
+  string = '';
+  book:any;
+  constructor(private  bookservice: BookService) { }
   ngOnInit() {
-    this.bookService.getbooks().subscribe(
-      books => {
-        console.log('Received books:', books); // Log the received data
-        this.books = books;
-      },
-      error => {
-        console.error('Error fetching book events:', error);
-      }
-    );
+    this.bookservice.getbooks().subscribe(books =>{
+      this.book = books;
+    })
+
+
   }
 }

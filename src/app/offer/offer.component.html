@@ -1,0 +1,13 @@
+<app-dashboard></app-dashboard>
+<!-- offer.component.html -->
+
+<div class="container">
+  <h1>Offers</h1>
+  <div *ngFor="let offer of offers">
+    <div class="offer-item">
+      <h3>{{ offer.name }}</h3>
+      <p>Discount: {{ offer.discount }}%</p>
+      <button (click)="editOffer(offer)">Edit</button>
+    </div>
+  </div>
+</div>

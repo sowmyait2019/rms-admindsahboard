@@ -15,6 +15,8 @@ import { AddUserComponent } from "./adduser/adduser.component";
 import { AddbulkComponent} from "./addbulk/addbulk.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
+import {OfferComponent} from "./offer/offer.component";
+import {OfferService} from "./offer.service";
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {SignupComponent} from "./signup/signup.component";
         AddUserComponent,
         AddbulkComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
+        OfferComponent,
+
 
 
 
@@ -41,7 +45,7 @@ import {SignupComponent} from "./signup/signup.component";
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [],
+    providers: [OfferService],
     exports: [
         DashboardComponent
     ],
